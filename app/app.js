@@ -141,9 +141,9 @@ function createDropdown(param) {
     }
   });
   textFields.push(textInput);
-
+  alert(textFields[0].id)
   const submitButton = document.createElement('button');
-  submitButton.textContent = 'Create';
+  submitButton.textContent = 'Submit';
 
   submitButton.addEventListener('click', () => {
     const enteredQuery = textInput.value;
@@ -177,9 +177,9 @@ function createDropdown(param) {
     }
   });
 
-  dropdown.appendChild(submitButton);
+
   dropdown.appendChild(textInput);
-  
+  dropdown.appendChild(submitButton);
 
   return dropdown;
 }
@@ -223,7 +223,7 @@ bpmnModeler.get('eventBus').on('shape.added', (event) => {
   // Check if the shape is a BPMN element (excluding labels)
   if (shape.businessObject && shape.businessObject.$instanceOf('ta:DataTask')) {
     const button = createButton(shape.id);
-   
+    alert(shape.id);
     document.getElementById('buttonContainer').appendChild(button);
 
     // Use a unique event name based on the shape's ID
