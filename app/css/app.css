@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    outline: none;
+    padding: 0;
+  }
+  
+  html, body, #container {
+    height: 100%;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .panel {
+    background-color: #fafafa;
+    border: solid 1px #ccc;
+    border-radius: 2px;
+    font-family: 'Arial', sans-serif;
+    padding: 10px;
+  }
+  
+  .djs-label {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .bpmn-icon-task.red {
+    color: #cc0000 !important;
+  }
+  
+  .bpmn-icon-task.yellow {
+    color: #ffc800 !important;
+  }
+  
+  .bpmn-icon-task.green {
+    color: #52B415 !important;
+  }
+  
+   /*custom */
+   .dynamicButton {
+    background-color: #ffffff; /* Set the background color */
+    color: #140101; /* Set the text color to white */
+    border-radius: 5px; /* Add rounded corners */
+    width: 20%;
+    height: 17px;;
+  }
+
+  .bottom-links {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+  }
+
+  .bpmn-icon-data-store.gold {
+    color: #0a64ff !important;
+  }
+  
+  #quality-assurance {
+    color: #111;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  #quality-assurance #form input {
+    border: solid 1px #ccc;
+    border-radius: 2px;
+    font-family: 'Arial', sans-serif;
+    padding: 10px;
+  }
+  
+  #quality-assurance #form input[type=text] {
+    width: 100%;
+  }
+  
+  #quality-assurance #form #warning {
+    background-color: rgba(255, 0, 0, 0.25);
+    border-radius: 2px;
+    padding: 10px;
+  }
+  
+  #quality-assurance #form input[type=submit] {
+    background-color: #FAFAFA;
+    color: #111;
+  }
+  
+  #hint {
+    bottom: 20px;
+    left: 20px;
+    position: absolute;
+  }
+
+  
+  
+  .arrow-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #3498db;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .arrow-down::after {
+    content: "\2193"; /* Unicode character for arrow down */
+    margin-left: 5px; /* Adding some space between the arrow and the text */
+  }
