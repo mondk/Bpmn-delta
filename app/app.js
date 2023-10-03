@@ -125,65 +125,62 @@ var overlays = bpmnModeler.get('overlays');
 function createDropdown(param) {
   const dropdown = document.createElement('div');
   dropdown.className = 'dynamicDropdown';
-
-
   
-  const textInput = document.createElement('input');
-  textInput.type = 'text';
-  textInput.placeholder = 'Enter query';
-  textInput.id=param;
-  containerE2.appendChild(textInput);
+  
  
-  textInput.addEventListener('keydown', (event) => {
-    if (event.keyCode === 32) {
-      event.preventDefault();
-      textInput.value+=' ';
-    }
-  });
-  textFields.push(textInput);
-  alert(textFields[0].id)
   const submitButton = document.createElement('button');
-  submitButton.textContent = 'Submit';
-
+  submitButton.textContent = 'Add';
+  
   submitButton.addEventListener('click', () => {
-    const enteredQuery = textInput.value;
-
-    if (enteredQuery.trim() !== '') {
-      
-       
-        fetch("http://localhost:3000/api/save",{
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({name: enteredQuery})
-          
-        }).then(res =>{
-          if (res.ok) {
-            alert('Query executed successfully');
-            textInput.value=''
-          }
-          else {
-            alert('Query could not be executed');
-          }
-        }).catch(err =>{
-          console.log("Error: ",err)
-        })
-
-        
-      } 
-     else {
-      alert('Please enter a query.');
-    }
+    appendProperty(dropdown);
   });
 
-
-  dropdown.appendChild(textInput);
   dropdown.appendChild(submitButton);
+  appendProperty(dropdown);
+  
 
   return dropdown;
 }
 
+function appendProperty(dropdown){
+  // Concatenate all effects together with a special char as separation, then save under effect slot in meta model
+
+  const select = document.createElement('select');
+    const pre = document.createElement('option');pre.textContent='cond';
+    const eff = document.createElement('option');eff.textContent='eff'
+    select.appendChild(pre);
+    select.appendChild(eff);
+
+    
+    const textInput = document.createElement('input');
+    textInput.type = 'text';
+    textInput.placeholder = 'Enter query';
+   // Think about how to implement the download feature wtih n elements
+ 
+ 
+    textInput.addEventListener('keydown', (event) => {
+      if (event.keyCode === 32) {
+        event.preventDefault();
+      
+      }
+    });
+
+    const del = document.createElement('button');
+    del.textContent='del';
+    del.addEventListener('click', () =>{
+    dropdown.removeChild(div);
+
+    });
+
+    const div = document.createElement('div');
+    div.className="optionContainer"
+    div.appendChild(select);
+    div.appendChild(textInput);
+    div.appendChild(del);
+
+    dropdown.appendChild(div);
+     
+}
 function createButton(param) {
   const button = document.createElement('button');
 
@@ -223,7 +220,7 @@ bpmnModeler.get('eventBus').on('shape.added', (event) => {
   // Check if the shape is a BPMN element (excluding labels)
   if (shape.businessObject && shape.businessObject.$instanceOf('ta:DataTask')) {
     const button = createButton(shape.id);
-    alert(shape.id);
+   
     document.getElementById('buttonContainer').appendChild(button);
 
     // Use a unique event name based on the shape's ID

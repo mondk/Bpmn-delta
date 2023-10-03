@@ -13,7 +13,12 @@
       ],
       "properties":[
         {
-          "name": "query",
+          "name": "pre",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "eff",
           "isAttr": true,
           "type": "String"
         }

@@ -55,6 +55,9 @@
   .bpmn-icon-data-store.gold {
     color: #0a64ff !important;
   }
+  .optionContainer {
+    display: flex;
+  }
   
   #quality-assurance {
     color: #111;
